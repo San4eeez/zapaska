@@ -50,19 +50,21 @@ namespace ClassyMetody
             }
             else
             {
-                Console.WriteLine("А ты хрен доедешь, давай зальём?");
+                Console.WriteLine("Если не будешь автостопом добираться, то введи сколько зальём: ");
                 zaprawka(float.Parse(Console.ReadLine()));
                 ostatok = this.fuel - (distance * (this.flow) / 100);
 
                 if (ostatok >= 0)
                 {
                     Console.WriteLine("Мы смогли доехать до рая и в баке осталось: " + ostatok);
-                    this.currentDistance += distance; // Увеличиваем текущий путь
+                   
                 }
                 else
                 {
                     float for_ostatok = (ostatok * -1);
                     Console.WriteLine($"Вам не хватило топлива до рая. Нужно было залить ещё {for_ostatok:F1} литра(ов)");
+                    Console.WriteLine("Считай что этой поездки небыло.");
+                    this.currentDistance -= distance; // если не доехал
                 }
             }
         }

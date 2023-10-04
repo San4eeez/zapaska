@@ -7,10 +7,11 @@ class Program
     {
         Console.WriteLine("Введите количество топлива в баке: ");
         float topliv = float.Parse(Console.ReadLine());
+            CarAuto carAuto = new CarAuto();
         while (true)
         {
 
-
+            Console.WriteLine("\n\n");
             Console.WriteLine("При начальной скорости 60 км/ч - расход 10 л/100 км.");
             Console.WriteLine("Разгонимся или притормозим? (для разгона положительное число, для торможения - отрицательное.)");
             float speedChange = float.Parse(Console.ReadLine());//разгон
@@ -54,7 +55,6 @@ class Program
                 }
             }
 
-            CarAuto carAuto = new CarAuto();
             carAuto.info("п248он", topliv, rashod);
             carAuto.outinfo();
 
@@ -66,7 +66,7 @@ class Program
             string edem = Console.ReadLine();
             carAuto.Probeg(a);
             carAuto.OutProbeg();
-            if (edem == "нет")
+            if (edem == "нет" || edem == "ytn")
             {
                 Console.WriteLine($"Общий пробег: {carAuto.GetTotalDistance()} км");
                 break;
